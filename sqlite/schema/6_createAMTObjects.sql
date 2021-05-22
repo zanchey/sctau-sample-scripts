@@ -361,9 +361,12 @@ CREATE INDEX v3_total_ingredient_quantity_totalquantity_idx ON v3_total_ingredie
 CREATE INDEX v3_total_ingredient_quantity_totalquantityunitid_idx ON v3_total_ingredient_quantity(totalquantityunitid);
 CREATE INDEX v3_total_ingredient_quantity_totalquantityunitterm_idx ON v3_total_ingredient_quantity(totalquantityunitterm);
 
+-- This ANALYZE command takes the next CREATE TABLE ... AS SELECT from 5+ hours of runtime
+-- to 15 seconds or thereabouts.
+ANALYZE;
+
 -- CREATE table for v3_AMT_products
 -- This table lists the seven AMT products with the IDs, preferred terms and ARTGID
--- This requires a lot of computation - ~6 hours of CPU time on a Core i5 1.6 GHz
 DROP TABLE IF EXISTS v3_AMT_products;
 CREATE TABLE v3_AMT_products AS
 
